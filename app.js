@@ -14,14 +14,14 @@ app.use(cors());
 
 //require
 const user = require("./routes/user")
-//const product = require("./route/product")
+const todos = require("./routes/todos")
 
  
  
 //use
  
 app.use("/", user);
-//app.use("/", product);
+app.use("/", todos);
 
  
 app.get("/", (req, res) => {

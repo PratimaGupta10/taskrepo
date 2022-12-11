@@ -92,8 +92,6 @@ exports.usersignup = async (req, res) => {
 
   exports.updateUser = async (req, res) => {
  
-
-
   await User.findOneAndUpdate(
     { _id: req.params.id },
     { $set: req.body },
