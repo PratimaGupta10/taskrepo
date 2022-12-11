@@ -17,6 +17,7 @@ const user = require("./routes/user")
 const todos = require("./routes/todos")
 const album = require("./routes/album")
 const photos = require("./routes/photos")
+const post = require("./routes/post")
 
  
  
@@ -26,6 +27,7 @@ app.use("/", user);
 app.use("/", todos);
 app.use("/", album);
 app.use("/", photos);
+app.use("/", post);
 
 
 
