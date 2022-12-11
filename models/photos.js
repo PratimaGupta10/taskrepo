@@ -3,18 +3,25 @@ const Schema = mongoose.Schema;
 const thisSchema = new Schema(
   {
 
-    userId: {
+    albumId: {
         type: Schema.Types.ObjectId,
-        ref: "user",
+        ref: "album",
     },
     title:{
         type: String
     },
+    url:{
+        type: String
+    },
+    thumbnailUrl:{
+type: String
 
+    
+    }
   },
 
   { timestamps: true }
 );
 
 
-module.exports = mongoose.model("album", thisSchema);
+module.exports = mongoose.model("photos", thisSchema);
