@@ -15,6 +15,7 @@ app.use(cors());
 //require
 const user = require("./routes/user")
 const todos = require("./routes/todos")
+const album = require("./routes/album")
 
  
  
@@ -22,6 +23,8 @@ const todos = require("./routes/todos")
  
 app.use("/", user);
 app.use("/", todos);
+app.use("/", album);
+
 
  
 app.get("/", (req, res) => {

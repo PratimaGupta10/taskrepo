@@ -1,24 +1,24 @@
-const Todos = require("../models/todos");
+const Album = require("../models/album");
  const resp = require("../helpers/apiResponse");
 
 
-exports.add_Todos = async (req, res) => {
-  const { userId,title,completed } = req.body;
+exports.add_Album = async (req, res) => {
+  const { userId,title } = req.body;
 
-  const newTodos = new Todos({
+  const newAlbum = new Album({
     userId:userId,
     title:title,
-    completed:completed
+    
   });
-  newTodos
+  newAlbum
   .save()
   .then((data) => resp.successr(res, data))
   
   .catch((error) => resp.errorr(res, error));
 }
 
-exports.todosList = async (req, res) => {
-  await Todos.find().sort({ sortorder: 1 })
+exports.albumList = async (req, res) => {
+  await Album.find().sort({ sortorder: 1 })
   .then((data) => resp.successr(res, data))
   
   .catch((error) => resp.errorr(res, error));
@@ -26,16 +26,16 @@ exports.todosList = async (req, res) => {
 
 
 
-exports.viewone_todos = async (req, res) => {
-   await Todos.findOne({ _id: req.params.id })
+exports.viewone_Album = async (req, res) => {
+   await Album.findOne({ _id: req.params.id })
    .then((data) => resp.successr(res, data))
   
   .catch((error) => resp.errorr(res, error));
 }
  
-exports.update_todos = async (req, res) => {
+exports.update_Album = async (req, res) => {
  
-    await Todos.findOneAndUpdate(
+    await Album.findOneAndUpdate(
       { _id: req.params.id },
       { $set: req.body },
       { new: true }
@@ -44,9 +44,9 @@ exports.update_todos = async (req, res) => {
       .catch((error) => resp.errorr(res, error));
   };
   
-  exports.deleteTodoslist = async (req, res) => {
+  exports.deleteAlbum = async (req, res) => {
   
-    await Todos.deleteOne({ _id: req.params.id })
+    await Album.deleteOne({ _id: req.params.id })
     .then((data) => resp.deleter(res, data))
       .catch((error) => resp.errorr(res, error));
 
