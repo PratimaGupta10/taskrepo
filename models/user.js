@@ -44,7 +44,11 @@ const thisSchema = new Schema(
     },
     bs:{
         type: String,
+    },
+    password:{
+        type: String,
     }
+
    
 
   },

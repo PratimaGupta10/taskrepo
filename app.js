@@ -13,14 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //require
-//const user = require("./route/user")
+const user = require("./routes/user")
 //const product = require("./route/product")
 
  
  
 //use
  
-//app.use("/", user);
+app.use("/", user);
 //app.use("/", product);
 
  
