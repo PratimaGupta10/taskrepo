@@ -90,4 +90,41 @@ exports.usersignup = async (req, res) => {
     }
   };
 
-   
+  exports.updateUser = async (req, res) => {
+ 
+
+
+  await User.findOneAndUpdate(
+    { _id: req.params.id },
+    { $set: req.body },
+    { new: true }
+  )
+    .then((data) => resp.successr(res, data))
+    .catch((error) => resp.errorr(res, error));
+};
+
+
+
+ 
+  exports.getoneUser = async (req, res) => {
+    await User.findOne({ _id: req.params.id })
+      .then((data) => resp.successr(res, data))
+      .catch((error) => resp.errorr(res, error));
+  };
+
+  exports.userlist = async (req, res) => {
+    await User.find()
+      .sort({ createdAt: -1 })
+      .then((data) => resp.successr(res, data))
+      .catch((error) => resp.errorr(res, error));
+  };
+
+  exports.deleteUser= async (req, res) => {
+    await User.deleteOne({ _id: req.params.id })
+      .then((data) => resp.deleter(res, data))
+      .catch((error) => resp.errorr(res, error));
+  };
+
+  
+
+  

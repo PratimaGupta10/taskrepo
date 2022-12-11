@@ -5,7 +5,11 @@ const router = express.Router();
 
 const {
     usersignup,
-    login
+    login,
+    updateUser,
+    getoneUser,
+    userlist,
+    deleteUser
    
   
   
@@ -14,8 +18,16 @@ const {
  
   
 
-router.post("/user/usersignup",usersignup);
-router.post("/user/login", login);
+router.post("/posts/usersignup",usersignup);
+router.post("/posts/login", login);
+router.put("/posts/updateUser/:id",updateUser);
+router.get("/posts/getoneUser/:id",getoneUser);
+router.get("/posts/userlist",userlist);
+router.delete("/posts/deleteUser/:id",deleteUser);
+
+
+
+
 
  
  
