@@ -18,6 +18,8 @@ const todos = require("./routes/todos")
 const album = require("./routes/album")
 const photos = require("./routes/photos")
 const post = require("./routes/post")
+const comments = require("./routes/comments")
+
 
  
  
@@ -28,6 +30,8 @@ app.use("/", todos);
 app.use("/", album);
 app.use("/", photos);
 app.use("/", post);
+app.use("/", comments);
+
 
 
 
